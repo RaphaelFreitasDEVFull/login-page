@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import { TbGlobe } from 'react-icons/tb'
-import Label from './components/label'
 import { Switch } from '@/components/ui/switch'
 import { FaGoogle } from 'react-icons/fa6'
 
