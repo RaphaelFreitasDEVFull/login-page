@@ -1,101 +1,80 @@
-import Image from "next/image";
+import Image from 'next/image'
+import { TbGlobe } from 'react-icons/tb'
+import Label from './components/label'
+import { Switch } from '@/components/ui/switch'
+import { FaGoogle } from 'react-icons/fa6'
 
-export default function Home() {
+const Home = () => {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
+    <div className="flex">
+      <div className="hidden lg:flex lg:max-w-[900px] w-full h-[100vh] relative">
         <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
+          src={'/images/bg-login.png'}
+          layout="fill"
+          objectFit="cover"
+          alt="bg"
         />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+      </div>
+      <div className="w-full flex-1 flex flex-col  p-8 ">
+        <div className="flex gap-4 items-center justify-center">
+          <TbGlobe size={48} />
+          <span className="text-3xl font-medium">Página de Login</span>
+        </div>
+        <h2 className="text-xl mt-16">Bem-vindo novamente..</h2>
+        <div className="mt-8 flex flex-col gap-3">
+          <label className="text-[#333333] font-light text-xs" htmlFor="email">
+            Login
+          </label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Entre com seu email"
+            className="h-[40px]  bg-gray-400/20 rounded-lg p-3 placeholder:text-black placeholder:opacity-100 placeholder:text-sm "
+          />
+        </div>
+        <div className="mt-8 flex flex-col gap-3">
+          <label
+            className="text-[#333333] font-light text-xs"
+            htmlFor="password"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
+            Senha
+          </label>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Digite sua senha"
+            className="h-[40px]  bg-gray-400/20 rounded-lg p-3 placeholder:text-black placeholder:opacity-100 placeholder:text-sm "
+          />
+        </div>
+        <div className="flex items-center justify-between">
+          <div className="my-8 flex items-center justify-start gap-2">
+            <Switch />
+            <span className="font-light text-sm">Lembre-se</span>
+          </div>
+          <a href="#" className="text-blue-400">
+            Esqueceu sua senha?
           </a>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        <button className="w-full bg-blue-500 text-white p-3 rounded-xl">
+          Entre
+        </button>
+        <div className="w-full h-[1px] bg-gray-400/20 my-8"></div>
+        <button className="flex items-center justify-center gap-4 bg-black text-white p-3 rounded-xl">
+          <FaGoogle />
+          Ou faça login com o Google
+        </button>
+        <span className="text-xs text-center mt-8">
+          Não tem uma conta?{' '}
+          <a href="#" className="text-blue-400">
+            Clique aqui
+          </a>{' '}
+          para se registrar
+        </span>
+      </div>
     </div>
-  );
+  )
 }
+
+export default Home
